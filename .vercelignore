@@ -1,0 +1,9 @@
+node_modules
+.anchor
+target
+.next
+.git
+packages/**/node_modules
+packages/**/target
+apps/**/node_modules
+*.zip
