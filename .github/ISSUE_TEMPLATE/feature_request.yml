@@ -1,0 +1,39 @@
+name: Feature request
+description: Propose an improvement to Taluq
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Taluq is built for Kenyan realities (bundles, speed, trust, privacy). Share what would create real impact.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem statement
+      description: What user pain does this solve?
+      placeholder: "e.g., Paying KPLC should work offline-first and confirm instantly"
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: What should we build?
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered (optional)
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - UX / UI
+        - Payments / Remittances
+        - Security / Privacy
+        - Solana Engine
+        - Settlement Bridge
+        - Docs

@@ -1,0 +1,35 @@
+{
+  "name": "taluq",
+  "version": "1.0.0",
+  "description": "Taluq: The Sovereign Settlement Engine inspired by the Kilwa Sultanate.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm -r --parallel dev",
+    "build": "pnpm -r build",
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck",
+    "postinstall": "npx prisma generate --schema=apps/web/prisma/schema.prisma"
+  },
+  "keywords": [
+    "solana",
+    "kenya",
+    "mpesa",
+    "utility",
+    "web3",
+    "yield",
+    "paystack",
+    "pwa",
+    "crypto",
+    "africa"
+  ],
+  "author": "Gerald Kombo (Digital Services)",
+  "license": "UNLICENSED",
+  "packageManager": "pnpm@10.28.1",
+  "pnpm": {
+    "overrides": {
+      "react": "^19.0.0",
+      "react-dom": "^19.0.0",
+      "@solana/wallet-adapter-react": "^0.15.39"
+    }
+  }
+}

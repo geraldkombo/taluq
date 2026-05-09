@@ -1,0 +1,87 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum TransactionStatus {
+  PENDING
+  COMPLETED
+  FAILED
+  ERR_INSUFFICIENT_FUNDS
+  KILL_SWITCHED
+}
+
+model Merchant {
+  id            String   @id @default(cuid())
+  name          String
+  phoneNumber   String   @unique
+  walletAddress String   @unique
+  createdAt     DateTime @default(now())
+
+  @@index([createdAt])
+}
+
+model User {
+  id          String   @id @default(cuid())
+  phoneNumber String   @unique
+  balance     Decimal  @db.Decimal(18, 2) @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([phoneNumber])
+}
+
+model Transaction {
+  id                String   @id @default(cuid())
+  reference         String   @unique
+  paystackId        String?  @unique
+  phoneNumber       String
+  amount            Decimal  @db.Decimal(18, 2)
+  expectedAmount    Decimal  @db.Decimal(18, 2) @default(0)
+  status            TransactionStatus @default(PENDING)
+  hmacSignature     String
+  solanaSignature   String?
+  rawPayloadHash    String
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@index([phoneNumber, createdAt])
+  @@index([status, createdAt])
+}
+
+model WebsocketHealthEvent {
+  id         String   @id @default(cuid())
+  endpoint   String
+  status     String
+  detail     String?
+  createdAt  DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([endpoint, createdAt])
+}
+
+model ForensicAlert {
+  id         String   @id @default(cuid())
+  reason     String
+  payload    String?
+  ipAddress  String?
+  severity   String   @default("HIGH")
+  createdAt  DateTime @default(now())
+
+  @@index([createdAt])
+}
+
+model Experiment {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  isActive    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([createdAt])
+  @@index([isActive, createdAt])
+}

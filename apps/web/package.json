@@ -1,0 +1,48 @@
+{
+  "name": "web",
+  "version": "0.1.0",
+  "private": true,
+  "author": "Gerald Kombo (Digital Services)",
+  "scripts": {
+    "dev": "next dev",
+    "build": "prisma generate && next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --import tsx --test src/lib/**/*.test.ts",
+    "postinstall": "prisma generate"
+  },
+  "dependencies": {
+    "@prisma/client": "^7.8.0",
+    "@prisma/adapter-pg": "^7.8.0",
+    "@solana/spl-token": "^0.4.8",
+    "@solana/wallet-adapter-react": "^0.15.39",
+    "@solana/wallet-adapter-react-ui": "^0.9.39",
+    "@solana/web3.js": "^1.98.4",
+    "@tailwindcss/postcss": "^4.2.4",
+    "bs58": "^6.0.0",
+    "framer-motion": "^12.38.0",
+    "ipaddr.js": "^2.2.0",
+    "jose": "^6.1.0",
+    "lucide-react": "^1.11.0",
+    "next": "^15.2.0",
+    "pg": "^8.16.3",
+    "prisma": "^7.8.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "zod": "^4.1.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/pg": "^8.11.14",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@eslint/eslintrc": "^3.3.1",
+    "eslint": "^9",
+    "eslint-config-next": "^15.2.0",
+    "postcss": "^8",
+    "tailwindcss": "^4.2.4",
+    "tsx": "^4.19.2",
+    "typescript": "^5"
+  }
+}

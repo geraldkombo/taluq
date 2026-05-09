@@ -1,0 +1,47 @@
+name: Bug report
+description: Report a bug in Taluq
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve Taluq. Please include enough detail for us to reproduce the issue.
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Device + browser + OS (e.g., Infinix Hot 30 + Chrome 123 + Android 14)
+      placeholder: "Device / Browser / OS"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Clear steps so we can reproduce the bug.
+      placeholder: |
+        1. Go to ...
+        2. Tap ...
+        3. See error ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      placeholder: "What you expected to happen"
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      placeholder: "What actually happened"
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / Screenshots (optional)
+      description: Paste logs (no secrets) or attach screenshots.
