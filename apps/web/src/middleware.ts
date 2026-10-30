@@ -21,8 +21,7 @@ function getRateLimitStore(): Map<string, RateLimitBucket> {
 function getClientIp(req: NextRequest) {
   const header = req.headers.get('x-forwarded-for') || req.headers.get('x-real-ip');
   if (header) return header.split(',')[0].trim();
-  // `ip` may be undefined depending on runtime/proxy
-  return req.ip ?? 'UNKNOWN';
+  return 'UNKNOWN';
 }
 
 async function verifyAdminJwt(token: string): Promise<boolean> {
